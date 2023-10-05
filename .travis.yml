@@ -1,3 +1,6 @@
+sudo: true 
+script: 
+  - sudo make install    
 sudo: required
 
 services: docker
