@@ -1,7 +1,5 @@
-sudo: true 
-  script: - sudo make install 
-  
 sudo: required
+
 services: docker
 before_install: 
   - docker-compose up --build -d
@@ -13,7 +11,6 @@ script:
   - docker-compose exec --env 'RAILS_ENV=test' web rails test
 
 deploy:
-  cleanup: true
   provider: script
   script:
     docker build -t registry.heroku.com/$HEROKU_APP_NAME/web -f Dockerfile.prod .;
